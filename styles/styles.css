@@ -1,0 +1,325 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:where(ul, ol):where([class]) {
+  padding-left: 0;
+}
+
+body,
+:where(blockquote, figure):where([class]) {
+  margin: 0;
+}
+
+:where(h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+dl):where([class]) {
+  margin-block: 0;
+}
+
+:where(dd[class]) {
+  margin-left: 0;
+}
+
+:where(fieldset[class]) {
+  margin-left: 0;
+  padding: 0;
+  border: none;
+}
+
+:where(ul[class]) {
+  list-style: none;
+}
+
+p {
+  --paragraphMarginBottom: 24px;
+  margin-block: 0;
+}
+
+p:where(:not([class]):not(:last-child)) {
+  margin-bottom: var(--paragraphMarginBottom);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+textarea,
+select,
+button {
+  font: inherit;
+}
+
+html {
+  height: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100%;
+  line-height: 1.5;
+}
+
+svg *[fill] {
+  fill: currentColor;
+}
+
+svg *[stroke] {
+  stroke: currentColor;
+}
+
+svg * {
+  transition-property: fill, stroke;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+/* Lexend */
+@font-face {
+  font-family: "Lexend";
+  src: url("../fonts/Lexend/Lexend-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Lexend";
+  src: url("../fonts/Lexend/Lexend-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Lexend";
+  src: url("../fonts/Lexend/Lexend-SemiBold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+html {
+  font-size: 10px;
+}
+
+body {
+  font-family: var(--font-family-base);
+  font-weight: 400;
+  line-height: 1.25;
+  color: var(--color-white);
+  background-color: var(--color-dark);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1;
+}
+
+p {
+  line-height: 1.6;
+}
+
+a,
+button,
+input,
+textarea,
+svg * {
+  transition-duration: var(--transition-duration);
+}
+
+:root {
+  --color-dark: #191D0A;
+  --color-accent: #F97247;
+  --color-pink: #F29DA2;
+  --color-yellow: #EBF29D;
+  --color-brown: #311212;
+  --color-white: #FFFFFF;
+  --border-thick: 4px solid var(--color-accent);
+  --border-thin: 3px solid var(--color-accent);
+  --font-family-base: "Lexend", sans-serif;
+  --container-width: 1640px;
+  --container-padding-x: 10px;
+  --btn-small-height: 48px;
+  --btn-big-height: 72px;
+  --transition-duration: 0.3s;
+}
+
+.container {
+  max-width: calc(var(--container-width) + var(--container-padding-x) * 2);
+  margin-inline: auto;
+  padding-inline: var(--container-padding-x);
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  margin: -1px !important;
+  border: 0 !important;
+  padding: 0 !important;
+  white-space: nowrap !important;
+  -webkit-clip-path: inset(100%) !important;
+          clip-path: inset(100%) !important;
+  clip: rect(0 0 0 0) !important;
+  overflow: hidden !important;
+}
+
+@media (max-width: 767px) {
+  .hidden-mobile {
+    display: none !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .visible-mobile {
+    display: none !important;
+  }
+}
+
+@property --myColor1 {
+  syntax: "<color>";
+  initial-value: #F97247;
+  inherits: false;
+}
+@property --myColor2 {
+  syntax: "<color>";
+  initial-value: #F97247;
+  inherits: false;
+}
+.btn {
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  height: var(--btn-small-height);
+  padding-inline: 1.4rem;
+  font-size: 1.6rem;
+  color: var(--color-white);
+  text-transform: uppercase;
+  border-radius: 2.4rem;
+  background: linear-gradient(45deg, var(--myColor1), var(--myColor2));
+  cursor: pointer;
+  transition: --myColor1 0.5s, --myColor2 0.5s;
+}
+@media (hover: hover) {
+  .btn:hover {
+    --myColor1: var(--color-accent);
+    --myColor2: var(--color-pink);
+    border-color: transparent;
+  }
+}
+@media (hover: none) {
+  .btn:active {
+    --myColor1: var(--color-accent);
+    --myColor2: var(--color-pink);
+    border-color: transparent;
+  }
+}
+.btn--limpid {
+  background: linear-gradient(45deg, transparent, transparent);
+  border: 2px solid var(--color-yellow);
+}
+@media (hover: hover) {
+  .btn--limpid:hover {
+    --myColor1: var(--color-accent);
+    --myColor2: var(--color-pink);
+    border-color: transparent;
+  }
+}
+@media (hover: none) {
+  .btn--limpid:active {
+    --myColor1: var(--color-accent);
+    --myColor2: var(--color-pink);
+    border-color: transparent;
+  }
+}
+
+.header {
+  padding-top: 1.6rem;
+}
+.header__inner {
+  height: 9.6rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: var(--border-thick);
+  border-radius: 6.4rem;
+}
+.header__menu {
+  font-size: 1.6rem;
+}
+.header__menu-list {
+  display: flex;
+  -moz-column-gap: 3.2rem;
+       column-gap: 3.2rem;
+}
+.header__menu-link {
+  color: inherit;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  height: 4rem;
+}
+.header__menu-link, .header__menu-link:hover {
+  text-decoration: none;
+}
+@media (hover: hover) {
+  .header__menu-link:hover::after {
+    width: 100%;
+  }
+}
+@media (hover: none) {
+  .header__menu-link:active::after {
+    width: 100%;
+  }
+}
+.header__menu-link::after {
+  content: "";
+  width: 0;
+  height: 2px;
+  position: absolute;
+  top: 75%;
+  left: 50%;
+  translate: -50%;
+  background-color: currentColor;
+  transition: inherit;
+}
+.header__buttons {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  -moz-column-gap: 1.4rem;
+       column-gap: 1.4rem;
+  margin-right: 4.8rem;
+}
+.header__buttons-lang {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  -moz-column-gap: 0.85rem;
+       column-gap: 0.85rem;
+}
+.header__buttons-lang svg {
+  width: 1.6rem;
+  height: 1.6rem;
+  fill: var(--color-yellow);
+}
+.header__buttons-lang span {
+  line-height: 1;
+}/*# sourceMappingURL=styles.css.map */

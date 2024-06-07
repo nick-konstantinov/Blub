@@ -1,0 +1,21 @@
+:root {
+    --color-dark: #191D0A;
+    --color-accent: #F97247;
+    --color-pink: #F29DA2;
+    --color-yellow: #EBF29D;
+    --color-brown: #311212;
+    --color-white: #FFFFFF;
+
+    --border-thick: 4px solid var(--color-accent);
+    --border-thin: 3px solid var(--color-accent);
+
+    --font-family-base: 'Lexend', sans-serif;
+
+    --container-width: 1640px;
+    --container-padding-x: 10px;
+
+    --btn-small-height: 48px;
+    --btn-big-height: 72px;
+
+    --transition-duration: 0.3s;
+}

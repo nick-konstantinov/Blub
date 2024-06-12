@@ -115,6 +115,7 @@ svg * {
 }
 html {
   font-size: 10px;
+  height: 100%;
 }
 
 body {
@@ -149,7 +150,8 @@ svg * {
   --color-brown: #311212;
   --color-white: #FFFFFF;
   --border-thick: 4px solid var(--color-accent);
-  --border-thin: 3px solid var(--color-accent);
+  --border-middle: 3px solid var(--color-accent);
+  --border-thin: 2px solid var(--color-accent);
   --font-family-base: "Lexend", sans-serif;
   --container-width: 1640px;
   --container-padding-x: 10px;
@@ -158,9 +160,39 @@ svg * {
   --transition-duration: 0.3s;
 }
 
+@property --myColor1 {
+  syntax: "<color>";
+  initial-value: #F97247;
+  inherits: false;
+}
+@property --myColor2 {
+  syntax: "<color>";
+  initial-value: #F97247;
+  inherits: false;
+}
+@property --myColor3 {
+  syntax: "<color>";
+  initial-value: transparent;
+  inherits: false;
+}
+@property --myColor4 {
+  syntax: "<color>";
+  initial-value: transparent;
+  inherits: false;
+}
+@property --myColor5 {
+  syntax: "<color>";
+  initial-value: #311212;
+  inherits: false;
+}
+@property --myColor6 {
+  syntax: "<color>";
+  initial-value: #311212;
+  inherits: false;
+}
 .container {
   max-width: calc(var(--container-width) + var(--container-padding-x) * 2);
-  margin-inline: auto;
+  margin: 0 auto;
   padding-inline: var(--container-padding-x);
 }
 
@@ -190,20 +222,15 @@ svg * {
   }
 }
 
-@property --myColor1 {
-  syntax: "<color>";
-  initial-value: #F97247;
-  inherits: false;
+.noscroll {
+  overflow: hidden;
 }
-@property --myColor2 {
-  syntax: "<color>";
-  initial-value: #F97247;
-  inherits: false;
-}
+
 .btn {
   padding: 0;
-  background-color: transparent;
+  background: transparent;
   border: none;
+  border-radius: 0;
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -213,7 +240,7 @@ svg * {
   color: var(--color-white);
   text-transform: uppercase;
   border-radius: 2.4rem;
-  background: linear-gradient(45deg, var(--myColor1), var(--myColor2));
+  background: linear-gradient(225deg, var(--myColor1), var(--myColor2));
   cursor: pointer;
   transition: --myColor1 0.5s, --myColor2 0.5s;
 }
@@ -221,37 +248,98 @@ svg * {
   .btn:hover {
     --myColor1: var(--color-accent);
     --myColor2: var(--color-pink);
-    border-color: transparent;
   }
 }
 @media (hover: none) {
   .btn:active {
     --myColor1: var(--color-accent);
     --myColor2: var(--color-pink);
-    border-color: transparent;
+  }
+}
+@media (max-width: 1023px) {
+  .btn {
+    font-size: 1.4rem;
+    height: 4rem;
   }
 }
 .btn--limpid {
-  background: linear-gradient(45deg, transparent, transparent);
+  background: linear-gradient(225deg, var(--myColor3), var(--myColor4));
   border: 2px solid var(--color-yellow);
+  transition: --myColor3 0.3s, --myColor4 0.3s;
 }
 @media (hover: hover) {
   .btn--limpid:hover {
-    --myColor1: var(--color-accent);
-    --myColor2: var(--color-pink);
+    --myColor3: var(--color-accent);
+    --myColor4: var(--color-pink);
     border-color: transparent;
   }
 }
 @media (hover: none) {
   .btn--limpid:active {
-    --myColor1: var(--color-accent);
-    --myColor2: var(--color-pink);
+    --myColor3: var(--color-accent);
+    --myColor4: var(--color-pink);
     border-color: transparent;
   }
+}
+@media (max-width: 767px) {
+  .btn--limpid {
+    width: 3.6rem;
+    height: 3.6rem;
+    padding: 0;
+    border-radius: 50%;
+  }
+}
+.btn--burger {
+  padding: 0;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  width: 3.6rem;
+  height: 3.6rem;
+}
+.btn--burger span {
+  position: relative;
+  font-size: 0;
+  width: 2.1rem;
+  height: 2px;
+  border-radius: 5px;
+  background: var(--color-white);
+}
+.btn--burger span::before, .btn--burger span::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  border-radius: 5px;
+  background-color: inherit;
+  transition: all 0.2s ease-in-out;
+}
+.btn--burger span::before {
+  top: -6px;
+}
+.btn--burger span::after {
+  top: 6px;
+}
+.btn--burger.active span {
+  background: transparent;
+}
+.btn--burger.active span::before, .btn--burger.active span::after {
+  background-color: var(--color-white);
+  border-radius: 0;
+  top: 0;
+}
+.btn--burger.active span::before {
+  transform: rotate(45deg);
+}
+.btn--burger.active span::after {
+  transform: rotate(-45deg);
 }
 
 .header {
   padding-top: 1.6rem;
+  position: relative;
+  z-index: 2;
 }
 .header__inner {
   height: 9.6rem;
@@ -261,13 +349,49 @@ svg * {
   border: var(--border-thick);
   border-radius: 6.4rem;
 }
+@media (max-width: 1023px) {
+  .header__inner {
+    height: 7.5rem;
+  }
+}
+@media (max-width: 767px) {
+  .header__inner {
+    height: 5.6rem;
+    border-width: 0.2rem;
+  }
+}
+.header__logo {
+  width: 28.7rem;
+  height: 3.2rem;
+}
+@media (max-width: 1280px) {
+  .header__logo {
+    width: 5rem;
+  }
+}
+@media (max-width: 1023px) {
+  .header__logo {
+    width: 1.5rem;
+  }
+}
 .header__menu {
   font-size: 1.6rem;
+}
+@media (max-width: 1023px) {
+  .header__menu {
+    font-size: 1.4rem;
+  }
 }
 .header__menu-list {
   display: flex;
   -moz-column-gap: 3.2rem;
        column-gap: 3.2rem;
+}
+@media (max-width: 1023px) {
+  .header__menu-list {
+    -moz-column-gap: 1.2rem;
+         column-gap: 1.2rem;
+  }
 }
 .header__menu-link {
   color: inherit;
@@ -306,20 +430,238 @@ svg * {
   align-items: center;
   -moz-column-gap: 1.4rem;
        column-gap: 1.4rem;
-  margin-right: 4.8rem;
+  padding-right: 4.8rem;
+}
+@media (max-width: 1023px) {
+  .header__buttons {
+    -moz-column-gap: 0.8rem;
+         column-gap: 0.8rem;
+    padding-right: 1.4rem;
+  }
+}
+@media (max-width: 767px) {
+  .header__buttons {
+    -moz-column-gap: 0.4rem;
+         column-gap: 0.4rem;
+  }
 }
 .header__buttons-lang {
   display: inline-flex;
   justify-content: center;
   align-items: center;
+  position: relative;
   -moz-column-gap: 0.85rem;
        column-gap: 0.85rem;
+}
+.header__buttons-lang:hover .header__buttons-lang-list {
+  height: 15rem;
+  z-index: 1;
+  opacity: 1;
+}
+@media (max-width: 1023px) {
+  .header__buttons-lang:hover .header__buttons-lang-list {
+    height: 12.5rem;
+  }
+}
+.header__buttons-lang:hover .header__buttons-lang-item:first-child {
+  top: 5.2rem;
+  opacity: 1;
+}
+@media (max-width: 1023px) {
+  .header__buttons-lang:hover .header__buttons-lang-item:first-child {
+    top: 4.2rem;
+  }
+}
+@media (max-width: 767px) {
+  .header__buttons-lang:hover .header__buttons-lang-item:first-child {
+    top: 3.8rem;
+  }
+}
+.header__buttons-lang:hover .header__buttons-lang-item:last-child {
+  top: 10.5rem;
+  opacity: 1;
+}
+@media (max-width: 1023px) {
+  .header__buttons-lang:hover .header__buttons-lang-item:last-child {
+    top: 8.5rem;
+  }
+}
+@media (max-width: 767px) {
+  .header__buttons-lang:hover .header__buttons-lang-item:last-child {
+    top: 7.5rem;
+  }
+}
+.header__buttons-lang-list {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  border-radius: 2.4rem;
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+}
+.header__buttons-lang-item {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--btn-small-height);
+  text-transform: uppercase;
+  border: 2px solid var(--color-yellow);
+  border-radius: 2.4rem;
+  background: linear-gradient(225deg, var(--myColor5), var(--myColor6));
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+}
+@media (hover: hover) {
+  .header__buttons-lang-item:hover {
+    border: transparent;
+    --myColor5: var(--color-accent);
+    --myColor6: var(--color-pink);
+  }
+}
+@media (hover: none) {
+  .header__buttons-lang-item:active {
+    border: transparent;
+    --myColor5: var(--color-accent);
+    --myColor6: var(--color-pink);
+  }
+}
+.header__buttons-lang-item:first-child, .header__buttons-lang-item:last-child {
+  top: 0;
+}
+@media (max-width: 1023px) {
+  .header__buttons-lang-item {
+    height: 4rem;
+  }
+}
+@media (max-width: 767px) {
+  .header__buttons-lang-item {
+    height: 3.28rem;
+  }
 }
 .header__buttons-lang svg {
   width: 1.6rem;
   height: 1.6rem;
   fill: var(--color-yellow);
 }
+@media (max-width: 767px) {
+  .header__buttons-lang svg {
+    width: 2rem;
+    height: 2rem;
+    -moz-column-gap: 0.85rem;
+         column-gap: 0.85rem;
+  }
+}
 .header__buttons-lang span {
   line-height: 1;
+}
+
+.mobile-overlay {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: calc(100% - 9.6rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: auto;
+  transition: top 0.25s ease-in-out;
+}
+.mobile-overlay::-webkit-scrollbar {
+  width: 0.8rem;
+}
+.mobile-overlay::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.0705882353);
+}
+.mobile-overlay::-webkit-scrollbar-thumb {
+  background-color: var(--color-accent);
+  border-radius: 1rem;
+}
+.mobile-overlay__body {
+  width: 100%;
+}
+.mobile-overlay__list {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.5rem;
+}
+.mobile-overlay__item {
+  height: 5rem;
+  border: var(--border-thin);
+  border-radius: 2.8rem;
+}
+@media (hover: hover) {
+  .mobile-overlay__item:hover {
+    border-color: transparent;
+  }
+}
+@media (hover: none) {
+  .mobile-overlay__item:active {
+    border-color: transparent;
+  }
+}
+.mobile-overlay__link {
+  color: inherit;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  font-size: 1.8rem;
+  padding-left: 2rem;
+  border-radius: 2.8rem;
+  background: linear-gradient(225deg, var(--myColor3), var(--myColor4));
+  transition: --myColor3 0.3s, --myColor4 0.3s;
+}
+.mobile-overlay__link, .mobile-overlay__link:hover {
+  text-decoration: none;
+}
+@media (hover: hover) {
+  .mobile-overlay__link:hover {
+    --myColor3: var(--color-accent);
+    --myColor4: var(--color-pink);
+  }
+}
+@media (hover: none) {
+  .mobile-overlay__link:active {
+    --myColor3: var(--color-accent);
+    --myColor4: var(--color-pink);
+  }
+}
+.mobile-overlay__buttons {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.5rem;
+  padding-top: 3rem;
+}
+.mobile-overlay__buttons button {
+  height: 4.6rem;
+}
+.mobile-overlay__buttons .mobile-overlay__btn--login {
+  width: 100%;
+  background-color: var(--color-brown);
+  border-color: var(--color-yellow);
+  border-radius: 2.4rem;
+  transition: border-color 0.3s;
+}
+@media (hover: hover) {
+  .mobile-overlay__buttons .mobile-overlay__btn--login:hover {
+    border-color: transparent;
+  }
+}
+@media (hover: none) {
+  .mobile-overlay__buttons .mobile-overlay__btn--login:active {
+    border-color: transparent;
+  }
+}
+
+.mobile-overlay.open {
+  top: 9.6rem;
 }/*# sourceMappingURL=styles.css.map */

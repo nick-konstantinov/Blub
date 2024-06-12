@@ -1,0 +1,203 @@
+.header {
+    padding-top: 1.6rem;
+    position: relative;
+    z-index: 2;
+
+    &__inner {
+        height: 9.6rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border: var(--border-thick);
+        border-radius: 6.4rem;
+
+        @include tablet {
+            height: 7.5rem;
+        }
+
+        @include mobile {
+            height: 5.6rem;
+            border-width: 0.2rem;
+        }
+    }
+
+    &__logo {
+        width: 28.7rem;
+        height: 3.2rem;
+
+        @include desktop {
+            width: 5rem;
+        }
+
+        @include tablet {
+            width: 1.5rem;
+        }
+    }
+
+    &__menu {
+        font-size: 1.6rem;
+
+        @include tablet {
+            font-size: 1.4rem;
+        }
+
+        &-list {
+            display: flex;
+            column-gap: 3.2rem;
+
+            @include tablet {
+                column-gap: 1.2rem;
+            }
+        }
+
+        &-link {
+            @include reset-link;
+            @include hover {
+                &::after {
+                    width: 100%;
+                }
+            }
+
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            height: 4rem;
+
+            &::after {
+                content: '';
+                width: 0;
+                height: 2px;
+                position: absolute;
+                top: 75%;
+                left: 50%;
+                translate: -50%;
+                background-color: currentColor;
+
+                transition: inherit;
+            }
+        }
+    }
+
+    &__buttons {
+        @include flex-center(true);
+
+        column-gap: 1.4rem;
+        padding-right: 4.8rem;
+
+        @include tablet {
+            column-gap: 0.8rem;
+            padding-right: 1.4rem;
+        }
+
+        @include mobile {
+            column-gap: 0.4rem;
+        }
+
+        &-lang {
+            @include flex-center(true);
+
+            position: relative;
+            column-gap: 0.85rem;
+
+            &:hover .header__buttons-lang-list {
+                height: 15rem;
+                z-index: 1;
+                opacity: 1;
+
+                @include tablet {
+                    height: 12.5rem;
+                }
+            }
+
+            &:hover .header__buttons-lang-item:first-child {
+                top: 5.2rem;
+                opacity: 1;
+
+                @include tablet {
+                    top: 4.2rem;
+                }
+
+                @include mobile {
+                    top: 3.8rem;
+                }
+            }
+
+            &:hover .header__buttons-lang-item:last-child {
+                top: 10.5rem;
+                opacity: 1;
+
+                @include tablet {
+                    top: 8.5rem;
+                }
+
+                @include mobile {
+                    top: 7.5rem;
+                }
+            }
+
+            &-list {
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: -1;
+                width: 100%;
+                height: 100%;
+                border-radius: 2.4rem;
+                opacity: 0;
+
+                transition: all 0.3s ease-in-out;
+            }
+
+            &-item {
+                @include flex-center(true);
+                @include hover {
+                    border: transparent;
+                    --myColor5: var(--color-accent);
+                    --myColor6: var(--color-pink);
+                }
+
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: var(--btn-small-height);
+                text-transform: uppercase;
+                border: 2px solid var(--color-yellow);
+                border-radius: 2.4rem;
+                background: linear-gradient(225deg, var(--myColor5), var(--myColor6));
+                opacity: 0;
+
+                transition: all 0.3s ease-in-out;
+
+                &:first-child, &:last-child {
+                    top: 0;
+                }
+
+                @include tablet {
+                    height: 4rem;
+                }
+
+                @include mobile {
+                    height: 3.28rem;
+                }
+            }
+
+            & svg  {
+                width: 1.6rem;
+                height: 1.6rem;
+                fill: var(--color-yellow);
+
+                @include mobile {
+                    width: 2rem;
+                    height: 2rem;
+
+                    column-gap: 0.85rem;
+                }
+            }
+
+            & span {
+                line-height: 1;
+            }
+        }
+    }
+}

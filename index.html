@@ -3,9 +3,86 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="image/x-icon" href="icons/favicon.ico" rel="shortcut icon">
     <link rel="stylesheet" href="styles/styles.css">
+    <script defer src="app.js"></script>
     <title>Blub</title>
 </head>
 <body>
+    <header class="header container">
+        <div class="header__inner">
+            <div class="header__logo"></div>
+            <nav class="header__menu hidden-mobile">
+                <ul class="header__menu-list">
+                    <li class="header__menu-item">
+                        <a href="#" class="header__menu-link">About us</a>
+                    </li>
+                    <li class="header__menu-item">
+                        <a href="#" class="header__menu-link">Grand</a>
+                    </li>
+                    <li class="header__menu-item">
+                        <a href="#" class="header__menu-link">Commissions</a>
+                    </li>
+                    <li class="header__menu-item">
+                        <a href="#" class="header__menu-link">Blub</a>
+                    </li>
+                    <li class="header__menu-item">
+                        <a href="#" class="header__menu-link">Contact us</a>
+                    </li>
+                    <li class="header__menu-item">
+                        <a href="#" class="header__menu-link">Careers</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="header__buttons">
+                <button class="btn btn--limpid header__buttons-lang" type="button">
+                    <svg viewBox="0 0 16 16">
+                        <use xlink:href="icons/union.svg#union"></use>
+                    </svg>
+                    <span class="header__buttons-lang-text hidden-mobile">RU</span>
+                    <ul class="header__buttons-lang-list">
+                        <li class="header__buttons-lang-item" data-lang="ru">Ru</li>
+                        <li class="header__buttons-lang-item" data-lang="en">En</li>
+                    </ul>
+                </button>
+                <button class="btn btn--limpid hidden-mobile" type="button">Log in</button>
+                <button class="btn hidden-mobile" type="button">Sign in</button>
+                <button class="btn btn--burger visible-mobile" type="button">
+                    <span>Open navigation menu</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div class="mobile-overlay visible-mobile container">
+        <div class="mobile-overlay__body">
+            <nav class="mobile-overlay__menu">
+                <ul class="mobile-overlay__list">
+                    <li class="mobile-overlay__item">
+                        <a href="#" class="mobile-overlay__link">About us</a>
+                    </li>
+                    <li class="mobile-overlay__item">
+                        <a href="#" class="mobile-overlay__link">Grand</a>
+                    </li>
+                    <li class="mobile-overlay__item">
+                        <a href="#" class="mobile-overlay__link">Commissions</a>
+                    </li>
+                    <li class="mobile-overlay__item">
+                        <a href="#" class="mobile-overlay__link">Blub</a>
+                    </li>
+                    <li class="mobile-overlay__item">
+                        <a href="#" class="mobile-overlay__link">Contact us</a>
+                    </li>
+                    <li class="mobile-overlay__item">
+                        <a href="#" class="mobile-overlay__link">Careers</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="mobile-overlay__buttons">
+                <button class="btn btn--limpid mobile-overlay__btn--login" type="button">Log in</button>
+                <button class="btn" type="button">Sign up</button>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

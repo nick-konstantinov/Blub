@@ -9,8 +9,9 @@
 
 @mixin reset-btn {
     padding: 0;
-    background-color: transparent;
+    background: transparent;
     border: none;
+    border-radius: 0;
 }
 
 @mixin flex-center($isInline: false) {

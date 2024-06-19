@@ -1,0 +1,57 @@
+/* Banner animation */
+
+// Vertical lines
+@keyframes line-v-1 {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(-1233px);
+    }
+}
+
+@keyframes line-v-2 {
+    0% {
+      transform: translateY(-1234px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+}
+
+@keyframes line-v-3 {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(-1385px);
+    }
+}
+
+// Horizontal lines
+@keyframes line-g-1 {
+    0% {
+      transform: translateX(-683px);
+    }
+    100% {
+      transform: translateX(0);
+    }
+}
+
+@keyframes line-g-2 {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-622px);
+    }
+}
+
+@keyframes line-g-3 {
+    0% {
+      transform: translateX(-609px);
+    }
+    100% {
+      transform: translateX(0);
+    }
+}

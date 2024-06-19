@@ -9,6 +9,7 @@
     flex-direction: column;
     align-items: center;
     overflow-y: auto;
+    background-color: var(--color-dark);
 
     transition: top 0.25s ease-in-out;
 
@@ -36,13 +37,7 @@
     }
 
     &__item {
-        @include hover {
-            border-color: transparent;
-        }
-
         height: 5rem;
-        border: var(--border-thin);
-        border-radius: 2.8rem;
     }
 
     &__link {
@@ -50,6 +45,7 @@
         @include hover {
             --myColor3: var(--color-accent);
             --myColor4: var(--color-pink);
+            border-color: transparent;
         }
 
         display: flex;
@@ -58,6 +54,7 @@
         height: 100%;
         font-size: 1.8rem;
         padding-left: 2rem;
+        border: var(--border-thin);
         border-radius: 2.8rem;
         background: linear-gradient(225deg, var(--myColor3), var(--myColor4));
         transition: --myColor3 0.3s, --myColor4 0.3s;

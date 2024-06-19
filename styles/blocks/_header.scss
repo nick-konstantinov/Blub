@@ -3,6 +3,10 @@
     position: relative;
     z-index: 2;
 
+    @include mobile {
+        padding-top: 1rem;
+    }
+
     &__inner {
         height: 9.6rem;
         display: flex;
@@ -10,6 +14,7 @@
         align-items: center;
         border: var(--border-thick);
         border-radius: 6.4rem;
+        background-color: var(--color-dark);
 
         @include tablet {
             height: 7.5rem;

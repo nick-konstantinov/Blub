@@ -5,6 +5,8 @@
     --color-yellow: #EBF29D;
     --color-brown: #311212;
     --color-white: #FFFFFF;
+    --color-gray: #FFFFFF60;
+    --color-glass: #FFFFFF12;
 
     --border-thick: 4px solid var(--color-accent);
     --border-middle: 3px solid var(--color-accent);
@@ -14,6 +16,10 @@
 
     --container-width: 1640px;
     --container-padding-x: 10px;
+
+    --header-desktop-offset: 112px;
+    --header-tablet-offset: 91px;
+    --header-mobile-offset: 66px;
 
     --btn-small-height: 48px;
     --btn-big-height: 72px;

@@ -1,8 +1,13 @@
 .container {
     max-width: calc(var(--container-width) + var(--container-padding-x) * 2);
-    margin: 0 auto;
+    margin-inline: auto;
     padding-inline: var(--container-padding-x);
-    // margin-inline: 10px;
+}
+
+.wrapper {
+    position: relative;
+    overflow-x: hidden;
+    height: 100%;
 }
 
 .visually-hidden {
@@ -32,4 +37,8 @@
 
 .noscroll {
     overflow: hidden;
+}
+
+.accent-text {
+    color: var(--color-accent);
 }

@@ -1,16 +1,17 @@
 .banner {
-    height: 100%;
+    height: calc(100vh - 112px - 130px);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-bottom: 14.5rem;
 
     @include tablet {
+        height: auto;
         flex-direction: column;
         justify-content: start;
     }
 
     @include narrow {
+        height: auto;
         flex-direction: column;
         justify-content: start;
     }
@@ -50,8 +51,18 @@
         filter: blur(12rem);
 
         @include mobile {
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(35.69deg);
+            width: 46.7rem;
+            height: 8.1rem;
+            filter: blur(3rem);
+        }
+
+        @include small-mobile {
             top: 61%;
             left: -24%;
+            transform: translate(0, 0) rotate(35.69deg);
             width: 46.7rem;
             height: 8.1rem;
             filter: blur(3rem);
@@ -132,7 +143,7 @@
 }
 
 .banner__v-chips {
-    height: 100%;
+    height: calc(100% - 112px - 130px);
     display: flex;
     column-gap: 1.6rem;
     position: absolute;
@@ -150,7 +161,7 @@
     }
 
     &-container {
-        height: calc(100% + var(--header-desktop-offset));
+        height: 100%;
         overflow: hidden;
     }
 
@@ -236,25 +247,29 @@
     height: 65.9rem;
 
     @include tablet {
-        padding-top: 30rem;
+        margin-top: 30rem;
+        margin-bottom: 14.5rem;
     }
 
     @include narrow {
-        padding-top: 30rem;
+        margin-top: 30rem;
+        margin-bottom: 14.5rem;
     }
 
     @include mobile {
         width: 100%;
+        margin-bottom: 2rem;
     }
 
     @include small-mobile {
-        padding-top: 23rem;
+        margin-top: 23rem;
+        margin-bottom: 0;
     }
 
     &::before {
         content: '';
         position: absolute;
-        top: 43rem;
+        top: 33rem;
         left: 25.6rem;
         z-index: -1;
         width: 57.4rem;
@@ -265,8 +280,8 @@
         filter: blur(30rem);
 
         @include mobile {
-            top: 62rem;
-            left: 16.7rem;
+            bottom: 0;
+            right: 0;
             width: 24rem;
             height: 24rem;
             filter: blur(10rem);
@@ -280,7 +295,13 @@
             filter: blur(10rem);
         }
 
-
+        @include small-mobile {
+            top: 32rem;
+            left: 16.7rem;
+            width: 24rem;
+            height: 24rem;
+            filter: blur(10rem);
+        }
     }
 
     &-title {

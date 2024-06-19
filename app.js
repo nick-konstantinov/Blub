@@ -2,12 +2,14 @@
 const burgerBtn = document.querySelector('.btn--burger');
 const burgerMenu = document.querySelector('.mobile-overlay');
 const wrapper = document.querySelector('.wrapper');
+const mask = document.querySelector('.mask');
 
 burgerBtn.addEventListener('click', function(){
 	burgerBtn.classList.toggle('active');
 	burgerMenu.classList.toggle('open');
     document.body.classList.toggle("noscroll");
 	wrapper.classList.toggle("noscroll");
+	mask.hidden = !mask.hidden;
 });
 
 // Lang Menu

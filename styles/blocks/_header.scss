@@ -58,27 +58,32 @@
         &-link {
             @include reset-link;
             @include hover {
+                color: var(--color-accent);
+
                 &::after {
                     width: 100%;
                 }
             }
 
+            color: var(--color-white);
             position: relative;
             display: inline-flex;
             align-items: center;
             height: 4rem;
 
+            transition: color 0.3s ease-in-out;
+
             &::after {
                 content: '';
                 width: 0;
-                height: 2px;
+                height: 1px;
                 position: absolute;
-                top: 75%;
+                top: 70%;
                 left: 50%;
                 translate: -50%;
                 background-color: currentColor;
 
-                transition: inherit;
+                transition: width 0.2s ease-in-out, background-color 0.1s ease-in-out;
             }
         }
     }

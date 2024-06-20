@@ -832,19 +832,19 @@ svg * {
 .banner__v-chips-line1 {
   width: 100px;
   height: 4932px;
-  background: url("../../images/line-v-1.png") repeat-y;
+  background: url("../images/line-v-1.png") repeat-y;
   animation: line-v-1 10s linear infinite;
 }
 .banner__v-chips-line2 {
   width: 102px;
   height: 4936px;
-  background: url("../../images/line-v-2.png") repeat-y;
+  background: url("../images/line-v-2.png") repeat-y;
   animation: line-v-2 10s linear infinite;
 }
 .banner__v-chips-line3 {
   width: 104px;
   height: 5540px;
-  background: url("../../images/line-v-3.png") repeat-y;
+  background: url("../images/line-v-3.png") repeat-y;
   animation: line-v-3 20s linear infinite;
 }
 
@@ -884,19 +884,19 @@ svg * {
 .banner__h-chips-line1 {
   height: 50px;
   width: 2728px;
-  background: url("../../images/line-g-1.png") repeat-x;
+  background: url("../images/line-g-1.png") repeat-x;
   animation: line-g-1 12s linear infinite;
 }
 .banner__h-chips-line2 {
   height: 51px;
   width: 2488px;
-  background: url("../../images/line-g-2.png") repeat-x;
+  background: url("../images/line-g-2.png") repeat-x;
   animation: line-g-2 12s linear infinite;
 }
 .banner__h-chips-line3 {
   height: 50px;
   width: 2436px;
-  background: url("../../images/line-g-3.png") repeat-x;
+  background: url("../images/line-g-3.png") repeat-x;
   animation: line-g-3 20s linear infinite;
 }
 
